@@ -33,6 +33,7 @@ export const ClaimPage: React.FC = () => {
     accounts,
     setCurrentView,
     user,
+    currentMember,
     claimAccount,
     shortlinkConfig,
     setIsBuyVipModalOpen,
@@ -46,11 +47,13 @@ export const ClaimPage: React.FC = () => {
 
   const account = accounts.find((a) => a.id === selectedAccountId) || accounts[0];
 
+  const effectiveTimer = account?.linkConfig?.timerSeconds ?? shortlinkConfig?.timerSeconds ?? 8;
+
   // Claim & Shortlink Gate State
-  const [isClaimed, setIsClaimed] = useState<boolean>(false);
   const [isTimerRunning, setIsTimerRunning] = useState<boolean>(false);
-  const [countdown, setCountdown] = useState<number>(10);
+  const [countdown, setCountdown] = useState<number>(effectiveTimer);
   const [claimError, setClaimError] = useState<string | null>(null);
+  const [isRedirecting, setIsRedirecting] = useState<boolean>(false);
 
   const formatUrl = (url?: string) => {
     if (!url) return '';
@@ -75,6 +78,17 @@ export const ClaimPage: React.FC = () => {
 
   const targetLink = getTargetLink();
 
+  // Check if account is unlocked: either via shortlink callback (?unlock=1), VIP status, or unlocked list
+  const isVip = Boolean(user?.isVip || currentMember?.isVip);
+  const isUnlocked = Boolean(account && (isAccountUnlocked(account.id) || isVip));
+
+  // Automatically register claim stats when account is confirmed unlocked
+  useEffect(() => {
+    if (account && isUnlocked) {
+      claimAccount(account);
+    }
+  }, [account?.id, isUnlocked]);
+
   const finalizeClaim = () => {
     if (!account) return;
     const res = claimAccount(account);
@@ -83,26 +97,35 @@ export const ClaimPage: React.FC = () => {
       return;
     }
     unlockAccount(account.id);
-    setIsClaimed(true);
   };
 
-  // 10-second countdown effect
+  // Countdown effect: when timer finishes, redirect directly to shortlink if one exists!
   useEffect(() => {
     if (!isTimerRunning) return;
 
     if (countdown <= 0) {
       setIsTimerRunning(false);
-      finalizeClaim();
 
-      // Open the link in a new tab ONLY AFTER the timer reaches 0
       const linkToOpen = getTargetLink();
       if (linkToOpen) {
+        // User MUST complete the shortlink before getting credentials!
+        setIsRedirecting(true);
+
+        // Immediate automatic redirect directly to the shortened link!
         try {
-          window.open(linkToOpen, '_blank');
+          if (window.top && window.top !== window) {
+            window.top.location.href = linkToOpen;
+          } else {
+            window.location.href = linkToOpen;
+          }
         } catch {
-          // If popup is blocked by browser, user can click the "Open Link" button on screen
+          window.location.href = linkToOpen;
         }
+        return;
       }
+
+      // If no shortlink is configured for this account, unlock directly:
+      finalizeClaim();
       return;
     }
 
@@ -118,14 +141,20 @@ export const ClaimPage: React.FC = () => {
   const [copiedField, setCopiedField] = useState<string | null>(null);
 
   const handleClaimClick = () => {
-    if (isTimerRunning || isClaimed) return;
+    if (isTimerRunning || isUnlocked || isRedirecting) return;
     setClaimError(null);
+
+    // If user is VIP, instant unlock without waiting or links
+    if (isVip) {
+      finalizeClaim();
+      return;
+    }
 
     // Trigger popunder if configured
     triggerPopunder('claim');
 
-    // DO NOT open any link here - wait for the 10-second timer to finish first!
-    setCountdown(10);
+    // Start countdown timer
+    setCountdown(effectiveTimer);
     setIsTimerRunning(true);
   };
 
@@ -346,7 +375,7 @@ export const ClaimPage: React.FC = () => {
               </div>
             )}
 
-            {!isClaimed ? (
+            {!isUnlocked ? (
               <div className="space-y-4">
                 {/* Account Availability Overview */}
                 <div className="p-3.5 rounded-xl bg-[#16161a] border border-zinc-800 space-y-2.5">
@@ -366,8 +395,30 @@ export const ClaimPage: React.FC = () => {
                 {/* In-Card Sponsor Ad Slot */}
                 <AdBannerSlot type="468x60" position="in-feed" className="my-1" />
 
-                {/* Countdown Panel or Get Account Button */}
-                {isTimerRunning ? (
+                {/* State 1: Redirecting directly to shortlink */}
+                {isRedirecting ? (
+                  <div className="p-5 rounded-xl bg-[#16161a] border border-emerald-500/40 space-y-4 text-center animate-in fade-in zoom-in-95 duration-200">
+                    <Loader2 className="w-8 h-8 animate-spin text-emerald-400 mx-auto" />
+                    <div>
+                      <h4 className="font-bold text-white font-gaming text-sm">
+                        جارٍ تحويلك إلى الرابط المختصر...
+                      </h4>
+                      <p className="text-xs text-zinc-400 mt-1 font-mono">
+                        Directing to link verification. Please complete the sponsor link to unlock credentials.
+                      </p>
+                    </div>
+                    {targetLink && (
+                      <a
+                        href={targetLink}
+                        className="inline-flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-gaming text-xs font-bold uppercase tracking-wider transition-all shadow-lg shadow-emerald-950/50"
+                      >
+                        <span>اضغط هنا إذا لم يتم التحويل تلقائياً (Open Link)</span>
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    )}
+                  </div>
+                ) : isTimerRunning ? (
+                  /* State 2: Countdown Timer */
                   <div className="p-4 rounded-xl bg-[#16161a] border border-emerald-500/30 space-y-3.5 shadow-lg shadow-emerald-950/20 animate-in fade-in zoom-in-95 duration-200">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
@@ -376,7 +427,7 @@ export const ClaimPage: React.FC = () => {
                           <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
                         </span>
                         <span className="text-xs font-gaming font-bold text-white uppercase tracking-wider">
-                          Preparing Credentials
+                          {targetLink ? 'Preparing Secure Gateway' : 'Preparing Credentials'}
                         </span>
                       </div>
                       <div className="flex items-center gap-1 px-2.5 py-0.5 rounded-lg text-xs font-mono font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
@@ -389,15 +440,17 @@ export const ClaimPage: React.FC = () => {
                     <div className="w-full bg-zinc-900 rounded-full h-2.5 overflow-hidden border border-zinc-800 p-0.5">
                       <div
                         className="bg-gradient-to-r from-emerald-500 via-teal-400 to-emerald-300 h-full rounded-full transition-all duration-1000 ease-linear shadow-sm shadow-emerald-400/50"
-                        style={{ width: `${Math.round(((10 - countdown) / 10) * 100)}%` }}
+                        style={{
+                          width: `${Math.round(((effectiveTimer - countdown) / Math.max(effectiveTimer, 1)) * 100)}%`
+                        }}
                       />
                     </div>
 
                     <p className="text-[11px] font-mono text-zinc-400 text-center animate-pulse">
-                      {countdown > 7 && 'Connecting to dispatch server...'}
-                      {countdown <= 7 && countdown > 4 && 'Verifying offline license & credentials...'}
-                      {countdown <= 4 && countdown > 1 && 'Generating secure access token...'}
-                      {countdown <= 1 && 'Unlocking account details now...'}
+                      {countdown > Math.floor(effectiveTimer * 0.7) && 'Connecting to dispatch server...'}
+                      {countdown <= Math.floor(effectiveTimer * 0.7) && countdown > Math.floor(effectiveTimer * 0.3) && 'Verifying offline license & security token...'}
+                      {countdown <= Math.floor(effectiveTimer * 0.3) && countdown > 0 && (targetLink ? 'Preparing redirect to sponsor shortlink...' : 'Unlocking credentials now...')}
+                      {countdown <= 0 && 'Redirecting...'}
                     </p>
 
                     <button
@@ -409,6 +462,7 @@ export const ClaimPage: React.FC = () => {
                     </button>
                   </div>
                 ) : (
+                  /* State 3: Ready to Claim Button */
                   <button
                     id="claim-account-btn"
                     onClick={handleClaimClick}
@@ -420,40 +474,17 @@ export const ClaimPage: React.FC = () => {
                 )}
               </div>
             ) : (
-              /* Revealed Credentials Box */
+              /* Revealed Credentials Box: Only shown AFTER passing shortlink or VIP */
               <div className="space-y-5 animate-in fade-in zoom-in-95 duration-300">
-                <div className="p-3.5 rounded-xl bg-zinc-900/90 border border-zinc-700 text-zinc-200 text-xs flex items-center gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                <div className="p-3.5 rounded-xl bg-emerald-950/40 border border-emerald-500/40 text-zinc-200 text-xs flex items-center gap-2.5">
+                  <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
                   <div>
-                    <span className="font-bold block text-white">Account Access Unlocked</span>
-                    <span className="text-[11px] text-zinc-400">
+                    <span className="font-bold block text-white font-gaming">تم التحقق وفتح الحساب بنجاح • Access Unlocked</span>
+                    <span className="text-[11px] text-emerald-300/90 font-mono">
                       Here are your login credentials for this account:
                     </span>
                   </div>
                 </div>
-
-                {/* Target Link card if configured */}
-                {targetLink && (
-                  <div className="p-3.5 rounded-xl bg-emerald-950/20 border border-emerald-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-                    <div className="flex items-center gap-2 min-w-0">
-                      <ExternalLink className="w-4 h-4 text-emerald-400 shrink-0" />
-                      <div className="min-w-0">
-                        <span className="text-xs font-bold text-emerald-300 block font-gaming">Link Unlocked</span>
-                        <span className="text-[10px] text-emerald-400/80 font-mono truncate block max-w-xs">{targetLink}</span>
-                        <span className="text-[10px] text-zinc-400 block mt-0.5">Click "Open Link" if it did not open in a new tab automatically.</span>
-                      </div>
-                    </div>
-                    <a
-                      href={targetLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full sm:w-auto px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-gaming text-xs font-bold uppercase tracking-wider transition-all shrink-0 flex items-center justify-center gap-1.5 shadow-md shadow-emerald-950/40"
-                    >
-                      <ExternalLink className="w-3.5 h-3.5" />
-                      <span>Open Link</span>
-                    </a>
-                  </div>
-                )}
 
                 {/* Login Credentials Panel */}
                 <div className="space-y-3 p-4 rounded-xl bg-[#16161a] border border-zinc-800">
@@ -468,7 +499,7 @@ export const ClaimPage: React.FC = () => {
                       </div>
                       <button
                         onClick={() => copyToClipboard(account.credentials.username, 'username')}
-                        className="px-3 py-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-mono flex items-center gap-1 transition-all border border-zinc-700"
+                        className="px-3 py-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-mono flex items-center gap-1 transition-all border border-zinc-700 cursor-pointer"
                       >
                         {copiedField === 'username' ? (
                           <>
@@ -494,14 +525,14 @@ export const ClaimPage: React.FC = () => {
                       </div>
                       <button
                         onClick={() => setShowPassword(!showPassword)}
-                        className="p-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 text-xs border border-zinc-700"
+                        className="p-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-300 text-xs border border-zinc-700 cursor-pointer"
                         title={showPassword ? 'Hide Password' : 'Show Password'}
                       >
                         {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                       </button>
                       <button
                         onClick={() => copyToClipboard(account.credentials.passwordHash, 'password')}
-                        className="px-3 py-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-mono flex items-center gap-1 transition-all border border-zinc-700"
+                        className="px-3 py-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-mono flex items-center gap-1 transition-all border border-zinc-700 cursor-pointer"
                       >
                         {copiedField === 'password' ? (
                           <>
@@ -531,18 +562,10 @@ export const ClaimPage: React.FC = () => {
                 {/* Actions */}
                 <div className="flex gap-2">
                   <button
-                    onClick={() => {
-                      setIsClaimed(false);
-                    }}
-                    className="flex-1 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-mono text-slate-300 transition-colors"
-                  >
-                    Claim Another Account
-                  </button>
-                  <button
                     onClick={() => setCurrentView('catalog')}
-                    className="flex-1 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-xs font-gaming font-bold text-white transition-colors"
+                    className="flex-1 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-xs font-gaming font-bold text-white transition-colors cursor-pointer"
                   >
-                    Browse Catalog
+                    Browse Other Games
                   </button>
                 </div>
               </div>

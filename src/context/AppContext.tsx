@@ -1301,18 +1301,24 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     return () => clearInterval(pollInterval);
   }, [apiEndpoint, currentView, syncFromSupabase]);
 
-  // Shortlink Unlocked Accounts state - Transient In-Memory Only!
-  // Resets to zero on browser refresh as requested: user must pass the shortlink again.
+  // Shortlink Unlocked Accounts state - Persisted in sessionStorage for the active session
   const [unlockedAccountIds, setUnlockedAccountIds] = useState<string[]>(() => {
     try {
-      sessionStorage.removeItem(`${LOCAL_STORAGE_PREFIX}unlocked`);
-      localStorage.removeItem(`${LOCAL_STORAGE_PREFIX}unlocked`);
+      const stored = sessionStorage.getItem(`${LOCAL_STORAGE_PREFIX}unlocked_accounts`);
+      if (stored) return JSON.parse(stored);
     } catch {}
     return [];
   });
 
   const unlockAccount = (id: string) => {
-    setUnlockedAccountIds((prev) => (prev.includes(id) ? prev : [...prev, id]));
+    setUnlockedAccountIds((prev) => {
+      if (prev.includes(id)) return prev;
+      const next = [...prev, id];
+      try {
+        sessionStorage.setItem(`${LOCAL_STORAGE_PREFIX}unlocked_accounts`, JSON.stringify(next));
+      } catch {}
+      return next;
+    });
   };
 
   const isAccountUnlocked = (id: string) => {
