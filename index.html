@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <script>
+      (function() {
+        try {
+          var target = typeof window !== 'undefined' ? window : (typeof globalThis !== 'undefined' ? globalThis : null);
+          if (!target) return;
+          var nativeFetch = target.fetch;
+          if (nativeFetch) {
+            var activeFetch = function() {
+              return nativeFetch.apply(this === target || !this ? target : this, arguments);
+            };
+            var propDef = {
+              get: function() {
+                return activeFetch;
+              },
+              set: function(fn) {
+                activeFetch = fn;
+              },
+              configurable: true,
+              enumerable: true
+            };
+            try {
+              Object.defineProperty(target, 'fetch', propDef);
+            } catch (_) {}
+            try {
+              if (target.Window && target.Window.prototype) {
+                Object.defineProperty(target.Window.prototype, 'fetch', propDef);
+              }
+            } catch (_) {}
+          }
+        } catch (_) {}
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EasyAcss - Steam Account Premium</title>
+    <meta name="description" content="Premium gaming account generator and catalog platform with cloud verification, shortlink monetization, Adsterra ad placements, and admin dashboard." />
+    <meta property="og:title" content="EasyAcss - Steam Account Premium" />
+    <meta property="og:description" content="Premium gaming account generator and catalog platform with cloud verification, shortlink monetization, Adsterra ad placements, and admin dashboard." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,400;0,600;0,700;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-[#0a0c10] text-slate-100 selection:bg-purple-600 selection:text-white antialiased min-h-screen">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

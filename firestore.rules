@@ -1,0 +1,29 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Accounts collection: readable by all visitors, writable so admin panel changes persist live
+    match /accounts/{accountId} {
+      allow read, write: if true;
+    }
+
+    // Site settings collection: readable by everyone, writable from Admin Panel
+    match /site_settings/{settingId} {
+      allow read, write: if true;
+    }
+
+    // Members collection:
+    match /members/{memberId} {
+      allow read, write: if true;
+    }
+
+    // Claim activities:
+    match /claim_activities/{activityId} {
+      allow read, write: if true;
+    }
+
+    // Default catch-all for all documents
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}

@@ -1,0 +1,638 @@
+{
+  "accounts": [
+    {
+      "id": "steam-invincible",
+      "title": "The Invincible",
+      "platform": "Steam",
+      "accountType": "standard",
+      "coverImage": "https://cdn.cloudflare.steamstatic.com/steam/apps/731040/library_600x900.jpg",
+      "badge": "Steam Offline / Story Edition",
+      "views": 12400,
+      "gameCount": 1,
+      "includedGames": [
+        {
+          "title": "The Invincible: Base Game",
+          "genre": "Sci-Fi / Hard Fiction",
+          "valueUSD": 29.99
+        }
+      ],
+      "totalValueUSD": 29.99,
+      "stock": 25,
+      "status": "active",
+      "lastVerified": "2 minutes ago",
+      "credentials": {
+        "username": "steam_invincible_regis",
+        "passwordHash": "Invincible!Nov2024",
+        "guardActive": true,
+        "guardCode": "IN789",
+        "instructions": "Login via Steam. Go to Steam > Go Offline in top menu to play uninterrupted."
+      },
+      "description": "Based on Stanisław Lem iconic sci-fi novel. Hard science fiction atmospheric adventure on Regis III.",
+      "featured": true,
+      "isNew": true,
+      "favorites": 310
+    },
+    {
+      "id": "steam-huntdown",
+      "title": "Huntdown",
+      "platform": "Steam",
+      "accountType": "standard",
+      "coverImage": "https://cdn.cloudflare.steamstatic.com/steam/apps/598550/library_600x900.jpg",
+      "badge": "Steam Offline / Action Arcade",
+      "views": 8900,
+      "gameCount": 1,
+      "includedGames": [
+        {
+          "title": "Huntdown: Full Game",
+          "genre": "Action / Retro Cyberpunk",
+          "valueUSD": 19.99
+        }
+      ],
+      "totalValueUSD": 19.99,
+      "stock": 18,
+      "status": "active",
+      "lastVerified": "4 minutes ago",
+      "credentials": {
+        "username": "steam_huntdown_bounty",
+        "passwordHash": "BountyHunter!99",
+        "guardActive": true,
+        "guardCode": "HD442",
+        "instructions": "Sign in and enable Steam Offline Mode."
+      },
+      "description": "Hard-boiled 16-bit cyberpunk action comedy arcade platformer. Clean pixel art and synthwave audio.",
+      "featured": false,
+      "favorites": 185
+    },
+    {
+      "id": "steam-gates-of-hell",
+      "title": "Call to Arms - Gates of Hell: Scorched Earth",
+      "platform": "Steam",
+      "accountType": "standard",
+      "coverImage": "https://cdn.cloudflare.steamstatic.com/steam/apps/400750/library_600x900.jpg",
+      "badge": "Steam Offline / RTS Edition",
+      "views": 14200,
+      "gameCount": 2,
+      "includedGames": [
+        {
+          "title": "Call to Arms - Gates of Hell",
+          "genre": "RTS / WWII",
+          "valueUSD": 39.99
+        },
+        {
+          "title": "Scorched Earth DLC Expansion",
+          "genre": "RTS Expansion",
+          "valueUSD": 14.99
+        }
+      ],
+      "totalValueUSD": 54.98,
+      "stock": 14,
+      "status": "active",
+      "lastVerified": "7 minutes ago",
+      "credentials": {
+        "username": "steam_gates_hell_rts",
+        "passwordHash": "PanzerFront#2024",
+        "guardActive": true,
+        "guardCode": "GH551",
+        "instructions": "Login with Steam client, install, switch to offline mode."
+      },
+      "description": "Realistic WWII real-time strategy with full historical campaigns, direct third-person control, and massive battlefields.",
+      "featured": false,
+      "favorites": 240
+    },
+    {
+      "id": "steam-car-mechanic",
+      "title": "Car Mechanic Simulator 2021",
+      "platform": "Steam",
+      "accountType": "standard",
+      "coverImage": "https://cdn.cloudflare.steamstatic.com/steam/apps/1190000/library_600x900.jpg",
+      "badge": "Steam Offline / Sim Edition",
+      "views": 21300,
+      "gameCount": 1,
+      "includedGames": [
+        {
+          "title": "Car Mechanic Simulator 2021",
+          "genre": "Simulation",
+          "valueUSD": 24.99
+        }
+      ],
+      "totalValueUSD": 24.99,
+      "stock": 30,
+      "status": "active",
+      "lastVerified": "1 minute ago",
+      "credentials": {
+        "username": "steam_mechanic_garage",
+        "passwordHash": "GarageTurbo!2024",
+        "guardActive": true,
+        "guardCode": "CM910",
+        "instructions": "Switch Steam to Offline Mode."
+      },
+      "description": "Work your way to a service empire. Get your hands dirty in a highly realistic simulation game with great attention to details.",
+      "featured": false,
+      "favorites": 390
+    },
+    {
+      "id": "steam-life-is-strange",
+      "title": "Life is Strange Double Exposure",
+      "platform": "Steam",
+      "accountType": "standard",
+      "coverImage": "https://cdn.cloudflare.steamstatic.com/steam/apps/1885540/library_600x900.jpg",
+      "badge": "Steam Offline / Deluxe",
+      "views": 31000,
+      "gameCount": 1,
+      "includedGames": [
+        {
+          "title": "Life is Strange: Double Exposure",
+          "genre": "Story / Adventure",
+          "valueUSD": 49.99
+        }
+      ],
+      "totalValueUSD": 49.99,
+      "stock": 12,
+      "status": "active",
+      "lastVerified": "Just now",
+      "credentials": {
+        "username": "steam_max_caulfield_lis",
+        "passwordHash": "PolaroidRewind!24",
+        "guardActive": true,
+        "guardCode": "LS772",
+        "instructions": "Login via Steam. Go to Offline mode."
+      },
+      "description": "Max Caulfield discovers her friend Safi murdered. To save her, Max attempts to rewind time and tears open a parallel timeline.",
+      "featured": true,
+      "favorites": 680
+    },
+    {
+      "id": "steam-baldurs-gate-3",
+      "title": "Baldur's Gate 3",
+      "platform": "Steam",
+      "accountType": "standard",
+      "coverImage": "https://cdn.cloudflare.steamstatic.com/steam/apps/1086940/library_600x900.jpg",
+      "badge": "Steam Offline / GOTY Edition",
+      "views": 74500,
+      "gameCount": 1,
+      "includedGames": [
+        {
+          "title": "Baldur's Gate 3 Full Game",
+          "genre": "RPG",
+          "valueUSD": 59.99
+        }
+      ],
+      "totalValueUSD": 59.99,
+      "stock": 20,
+      "status": "active",
+      "lastVerified": "3 minutes ago",
+      "credentials": {
+        "username": "steam_tav_faerun_bg3",
+        "passwordHash": "MindFlayer!2024#Pass",
+        "guardActive": true,
+        "guardCode": "BG883",
+        "instructions": "Start Steam, download Baldur's Gate 3, then switch to Steam Offline mode."
+      },
+      "description": "Game of the Year. Gather your party and return to the Forgotten Realms in a tale of fellowship and betrayal, sacrifice and survival.",
+      "featured": true,
+      "favorites": 1420
+    },
+    {
+      "id": "steam-mk11",
+      "title": "Mortal Kombat 11",
+      "platform": "Steam",
+      "accountType": "standard",
+      "coverImage": "https://cdn.cloudflare.steamstatic.com/steam/apps/976310/library_600x900.jpg",
+      "badge": "Steam Offline / Ultimate Edition",
+      "views": 38200,
+      "gameCount": 2,
+      "includedGames": [
+        {
+          "title": "Mortal Kombat 11 Base Game",
+          "genre": "Fighting",
+          "valueUSD": 49.99
+        },
+        {
+          "title": "Aftermath & Kombat Pack 1+2",
+          "genre": "DLC Pack",
+          "valueUSD": 29.99
+        }
+      ],
+      "totalValueUSD": 79.98,
+      "stock": 22,
+      "status": "active",
+      "lastVerified": "5 minutes ago",
+      "credentials": {
+        "username": "steam_scorpion_nether",
+        "passwordHash": "GetOverHere!9921",
+        "guardActive": true,
+        "guardCode": "MK912",
+        "instructions": "Login and switch to Steam Offline Mode."
+      },
+      "description": "MK is back and better than ever in the next evolution of the iconic franchise. Features custom character variations and full cinematic story.",
+      "featured": false,
+      "favorites": 560
+    },
+    {
+      "id": "steam-ori-wisps",
+      "title": "Ori and the Will of the Wisps",
+      "platform": "Steam",
+      "accountType": "standard",
+      "coverImage": "https://cdn.cloudflare.steamstatic.com/steam/apps/1057090/library_600x900.jpg",
+      "badge": "Steam Offline / Masterpiece",
+      "views": 29400,
+      "gameCount": 1,
+      "includedGames": [
+        {
+          "title": "Ori and the Will of the Wisps",
+          "genre": "Metroidvania / Platformer",
+          "valueUSD": 29.99
+        }
+      ],
+      "totalValueUSD": 29.99,
+      "stock": 27,
+      "status": "active",
+      "lastVerified": "8 minutes ago",
+      "credentials": {
+        "username": "steam_ori_spirit_tree",
+        "passwordHash": "NibelForest#2024",
+        "guardActive": true,
+        "guardCode": "OR331",
+        "instructions": "Sign in with Steam. Switch to offline mode."
+      },
+      "description": "Embark on an adventure in a vast, exotic world where you will encounter towering enemies and challenging puzzles on your quest to unravel Ori's destiny.",
+      "featured": false,
+      "favorites": 470
+    },
+    {
+      "id": "steam-hello-neighbor",
+      "title": "Hello Neighbor 1 + 2",
+      "platform": "Steam",
+      "accountType": "standard",
+      "coverImage": "https://cdn.cloudflare.steamstatic.com/steam/apps/521890/library_600x900.jpg",
+      "badge": "Steam Offline / Double Pack",
+      "views": 23100,
+      "gameCount": 2,
+      "includedGames": [
+        {
+          "title": "Hello Neighbor 1",
+          "genre": "Stealth / Horror",
+          "valueUSD": 29.99
+        },
+        {
+          "title": "Hello Neighbor 2",
+          "genre": "Stealth / Horror",
+          "valueUSD": 39.99
+        }
+      ],
+      "totalValueUSD": 69.98,
+      "stock": 16,
+      "status": "active",
+      "lastVerified": "11 minutes ago",
+      "credentials": {
+        "username": "steam_peterson_neighbor",
+        "passwordHash": "BasementKey!772",
+        "guardActive": true,
+        "guardCode": "HN440",
+        "instructions": "Login with Steam client, select Go Offline."
+      },
+      "description": "Stealth horror game about sneaking into your neighbor's house to figure out what horrible secrets he's hiding in the basement.",
+      "featured": false,
+      "favorites": 395
+    },
+    {
+      "id": "steam-f1-24",
+      "title": "F1® 24",
+      "platform": "Steam",
+      "accountType": "standard",
+      "coverImage": "https://cdn.cloudflare.steamstatic.com/steam/apps/2488620/library_600x900.jpg",
+      "badge": "Steam Offline / Champions Edition",
+      "views": 41800,
+      "gameCount": 1,
+      "includedGames": [
+        {
+          "title": "F1® 24 Champions Edition",
+          "genre": "Racing / Simulation",
+          "valueUSD": 69.99
+        }
+      ],
+      "totalValueUSD": 69.99,
+      "stock": 11,
+      "status": "active",
+      "lastVerified": "3 minutes ago",
+      "credentials": {
+        "username": "steam_f1_verstappen_pole",
+        "passwordHash": "RedBullP1!2024",
+        "guardActive": true,
+        "guardCode": "F1990",
+        "instructions": "Launch Steam, go offline, race uninterrupted in career mode."
+      },
+      "description": "Be one of the 20 with EA SPORTS F1® 24, the official videogame of the 2024 FIA Formula One World Championship.",
+      "featured": true,
+      "favorites": 730
+    },
+    {
+      "id": "steam-wukong",
+      "title": "Black Myth: Wukong Deluxe",
+      "platform": "Steam",
+      "accountType": "standard",
+      "coverImage": "https://cdn.cloudflare.steamstatic.com/steam/apps/2358720/library_600x900.jpg",
+      "badge": "Steam Offline / Deluxe",
+      "views": 89000,
+      "gameCount": 1,
+      "includedGames": [
+        {
+          "title": "Black Myth: Wukong Deluxe Edition",
+          "genre": "Action / RPG",
+          "valueUSD": 69.99
+        }
+      ],
+      "totalValueUSD": 69.99,
+      "stock": 45,
+      "status": "active",
+      "lastVerified": "Just now",
+      "credentials": {
+        "username": "steam_wukong_destined_one",
+        "passwordHash": "WukongDestiny!2024",
+        "guardActive": true,
+        "guardCode": "WK998",
+        "instructions": "Sign into Steam, download, switch to offline mode."
+      },
+      "description": "Action RPG rooted in Chinese mythology. Set out as the Destined One to uncover the truth of a glorious legend.",
+      "featured": true,
+      "favorites": 2150
+    },
+    {
+      "id": "steam-cyberpunk",
+      "title": "Cyberpunk 2077 + Phantom Liberty",
+      "platform": "Steam",
+      "accountType": "standard",
+      "coverImage": "https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/library_600x900.jpg",
+      "badge": "Steam Offline / Ultimate",
+      "views": 65000,
+      "gameCount": 2,
+      "includedGames": [
+        {
+          "title": "Cyberpunk 2077 Base Game",
+          "genre": "RPG / Sci-Fi",
+          "valueUSD": 59.99
+        },
+        {
+          "title": "Phantom Liberty Expansion",
+          "genre": "Expansion",
+          "valueUSD": 29.99
+        }
+      ],
+      "totalValueUSD": 89.98,
+      "stock": 35,
+      "status": "active",
+      "lastVerified": "4 minutes ago",
+      "credentials": {
+        "username": "steam_v_nightcity_net",
+        "passwordHash": "Silverhand2077!Rock",
+        "guardActive": true,
+        "guardCode": "CP771",
+        "instructions": "Login, download, switch to offline mode."
+      },
+      "description": "Open-world action-adventure RPG set in the megalopolis of Night City. Become a cyberpunk mercenary.",
+      "featured": true,
+      "favorites": 1890
+    },
+    {
+      "id": "steam-elden-ring",
+      "title": "Elden Ring + Shadow of the Erdtree",
+      "platform": "Steam",
+      "accountType": "standard",
+      "coverImage": "https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/library_600x900.jpg",
+      "badge": "Steam Offline / GOTY",
+      "views": 82000,
+      "gameCount": 2,
+      "includedGames": [
+        {
+          "title": "Elden Ring",
+          "genre": "Action RPG / Souls",
+          "valueUSD": 59.99
+        },
+        {
+          "title": "Shadow of the Erdtree DLC",
+          "genre": "DLC",
+          "valueUSD": 39.99
+        }
+      ],
+      "totalValueUSD": 99.98,
+      "stock": 28,
+      "status": "active",
+      "lastVerified": "1 minute ago",
+      "credentials": {
+        "username": "steam_tarnished_erdtree",
+        "passwordHash": "TarnishedRise!Erd24",
+        "guardActive": true,
+        "guardCode": "ER551",
+        "instructions": "Login and switch Steam to Offline mode."
+      },
+      "description": "Rise, Tarnished, and be guided by grace to brandish the power of the Elden Ring and become an Elden Lord in the Lands Between.",
+      "featured": true,
+      "favorites": 1980
+    },
+    {
+      "id": "steam-gta5",
+      "title": "Grand Theft Auto V: Premium Edition",
+      "platform": "Steam",
+      "accountType": "standard",
+      "coverImage": "https://cdn.cloudflare.steamstatic.com/steam/apps/271590/library_600x900.jpg",
+      "badge": "Steam Offline / Premium",
+      "views": 95000,
+      "gameCount": 1,
+      "includedGames": [
+        {
+          "title": "GTA V Premium",
+          "genre": "Action / Open World",
+          "valueUSD": 29.99
+        }
+      ],
+      "totalValueUSD": 29.99,
+      "stock": 50,
+      "status": "active",
+      "lastVerified": "2 minutes ago",
+      "credentials": {
+        "username": "steam_los_santos_heist",
+        "passwordHash": "TrevorMichaelFranklin!9",
+        "guardActive": true,
+        "guardCode": "GT881",
+        "instructions": "Login with Steam client, install, switch to offline mode."
+      },
+      "description": "The complete Grand Theft Auto V story experience, free access to the ever-evolving Grand Theft Auto Online.",
+      "featured": false,
+      "favorites": 2400
+    },
+    {
+      "id": "xbox-forza",
+      "title": "Forza Horizon 5: Premium Edition",
+      "platform": "Xbox",
+      "accountType": "standard",
+      "coverImage": "https://cdn.cloudflare.steamstatic.com/steam/apps/1551360/library_600x900.jpg",
+      "badge": "Xbox App / Ultimate",
+      "views": 47000,
+      "gameCount": 1,
+      "includedGames": [
+        {
+          "title": "Forza Horizon 5 Premium",
+          "genre": "Racing / Open World",
+          "valueUSD": 99.99
+        }
+      ],
+      "totalValueUSD": 99.99,
+      "stock": 20,
+      "status": "active",
+      "lastVerified": "6 minutes ago",
+      "credentials": {
+        "username": "xbox_forza_horizon_apex@live.com",
+        "passwordHash": "HorizonFestival!2024",
+        "guardActive": false,
+        "instructions": "Login to Microsoft Store & Xbox App on Windows."
+      },
+      "description": "Your Ultimate Horizon Adventure awaits! Explore vibrant and ever-evolving open world landscapes of Mexico.",
+      "featured": false,
+      "favorites": 890
+    },
+    {
+      "id": "cookies-crunchyroll",
+      "title": "Crunchyroll Mega Fan Premium Cookie",
+      "platform": "Cookies",
+      "accountType": "standard",
+      "coverImage": "https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=600&q=80",
+      "badge": "Direct Cookie / 4K No Ads",
+      "views": 31000,
+      "gameCount": 1,
+      "includedGames": [
+        {
+          "title": "Crunchyroll Mega Fan",
+          "genre": "Anime / Streaming",
+          "valueUSD": 9.99
+        }
+      ],
+      "totalValueUSD": 9.99,
+      "stock": 100,
+      "status": "active",
+      "lastVerified": "Just now",
+      "credentials": {
+        "username": "Crunchyroll Mega Fan Access",
+        "passwordHash": "COOKIE_AUTHENTICATED",
+        "guardActive": false,
+        "cookieData": "session_token=CR_PREM_FAN_99218274; user_tier=mega_fan; no_ads=true; expires=2026-12-31;",
+        "instructions": "Install Cookie-Editor browser extension. Go to crunchyroll.com, click Import, paste the JSON cookie above, and refresh the page!"
+      },
+      "description": "Instant premium streaming cookie. Watch all anime simulcasts in 1080p/4K without advertisements.",
+      "featured": false,
+      "favorites": 650
+    }
+  ],
+  "members": [
+    {
+      "id": "member-master-adam",
+      "username": "adam",
+      "email": "adam@easyacss.com",
+      "password": "adam12",
+      "role": "admin",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80",
+      "createdAt": "Master Admin",
+      "favorites": [],
+      "claimsCount": 0
+    },
+    {
+      "id": "member-master-admin",
+      "username": "admin",
+      "email": "admin@easyacss.com",
+      "password": "adam12",
+      "role": "admin",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80",
+      "createdAt": "System Admin",
+      "favorites": [],
+      "claimsCount": 0
+    },
+    {
+      "id": "member-demo",
+      "username": "PlayerOne",
+      "email": "player@easyacss.com",
+      "password": "player123",
+      "role": "member",
+      "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80",
+      "createdAt": "Member since 2025",
+      "favorites": [
+        "steam-cuphead",
+        "cookies-crunchyroll"
+      ],
+      "claimsCount": 2
+    }
+  ],
+  "siteContent": {
+    "siteName": "EasyAcss",
+    "subTitle": "Free Steam offline gaming accounts, instant credentials unlock, and active 2FA dispatching.",
+    "announcement": "🔥 New Steam accounts added daily! Check back often.",
+    "announcementActive": true,
+    "discordUrl": "https://discord.gg/easyacss",
+    "discordServerName": "EasyAcss Official",
+    "supportUrl": "https://discord.gg/easyacss",
+    "telegramUrl": "https://t.me/easyacss",
+    "rules": [
+      "Do not change the account credentials (email or password).",
+      "Switch Steam to \"Go Offline\" mode immediately after logging in.",
+      "Do not activate Steam Guard Family sharing or modify security settings.",
+      "Use accounts strictly for offline single-player playthroughs."
+    ]
+  },
+  "shortlinkConfig": {
+    "enabled": false,
+    "provider": "cutly",
+    "domain": "cutt.ly",
+    "apiToken": "",
+    "timerSeconds": 5,
+    "bypassForVip": true,
+    "simulatedLatency": false
+  },
+  "adsterraConfig": {
+    "enabled": true,
+    "publisherId": "pub_9999",
+    "directLinkUrl": "https://monetize.direct/test",
+    "popunderEnabled": true,
+    "triggerPopunderOnClaim": false,
+    "popunderOnFirstClick": false,
+    "popunderCode": "",
+    "socialBarEnabled": false,
+    "socialBarCode": "",
+    "banner728x90Top": "",
+    "banner728x90Bottom": "",
+    "banner300x250Sidebar": "",
+    "banner468x60Claim": "",
+    "nativeBannerCode": "",
+    "inFeedAdsEnabled": false
+  },
+  "activities": [
+    {
+      "id": "act-1789512596391-643",
+      "type": "admin_login",
+      "action": "Administrator Sign In",
+      "username": "adam",
+      "accountTitle": "Master Admin privileges activated",
+      "platform": "Web Portal",
+      "timestamp": "11:49 PM",
+      "status": "Admin Access",
+      "ip": "105.158.44.12",
+      "details": "Admin adam signed in and unlocked Admin Panel"
+    },
+    {
+      "id": "act-1789134592663-83",
+      "type": "admin_login",
+      "action": "Administrator Sign In",
+      "username": "adam",
+      "accountTitle": "Master Admin privileges activated",
+      "platform": "Web Portal",
+      "timestamp": "02:49 PM",
+      "status": "Admin Access",
+      "ip": "105.158.44.12",
+      "details": "Admin adam signed in and unlocked Admin Panel"
+    }
+  ],
+  "lastUpdated": "2026-09-21T20:23:15.250Z",
+  "oauthConfig": {
+    "discordClientId": "123456789012345678",
+    "discordClientSecret": "test_secret_discord",
+    "googleClientId": "test-google.apps.googleusercontent.com",
+    "googleClientSecret": "GOCSPX-test"
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "entities": {
+    "account": {
+      "title": "Account",
+      "description": "Steam/Gaming account available for claiming",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "platform": { "type": "string" },
+        "accountType": { "type": "string" },
+        "coverImage": { "type": "string" },
+        "badge": { "type": "string" },
+        "views": { "type": "number" },
+        "gameCount": { "type": "number" },
+        "includedGames": { "type": "array" },
+        "totalValueUSD": { "type": "number" },
+        "stock": { "type": "number" },
+        "status": { "type": "string" },
+        "lastVerified": { "type": "string" },
+        "credentials": { "type": "object" },
+        "description": { "type": "string" },
+        "featured": { "type": "boolean" },
+        "isNew": { "type": "boolean" },
+        "favorites": { "type": "number" }
+      },
+      "required": ["id", "title", "platform", "coverImage"]
+    },
+    "site_setting": {
+      "title": "SiteSetting",
+      "description": "Global website configurations, shortlink configs, adsterra configs, site content, and VIP tiers",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "data": { "type": "object" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id"]
+    },
+    "member": {
+      "title": "Member",
+      "description": "Registered member or admin profile",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "username": { "type": "string" },
+        "email": { "type": "string" },
+        "role": { "type": "string" },
+        "avatar": { "type": "string" }
+      },
+      "required": ["id", "username"]
+    },
+    "claim_activity": {
+      "title": "ClaimActivity",
+      "description": "Activity stream of claimed accounts",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "accountTitle": { "type": "string" },
+        "platform": { "type": "string" },
+        "timestamp": { "type": "string" }
+      },
+      "required": ["id", "accountTitle"]
+    }
+  },
+  "firestore": {
+    "/accounts/{accountId}": {
+      "schema": { "$ref": "#/entities/account" },
+      "description": "Gaming accounts documents collection"
+    },
+    "/site_settings/{settingId}": {
+      "schema": { "$ref": "#/entities/site_setting" },
+      "description": "Global website configs collection (site_content, shortlink, adsterra, vip_tiers)"
+    },
+    "/members/{memberId}": {
+      "schema": { "$ref": "#/entities/member" },
+      "description": "Registered users and administrators"
+    },
+    "/claim_activities/{activityId}": {
+      "schema": { "$ref": "#/entities/claim_activity" },
+      "description": "Live recent claim activity log"
+    }
+  }
+}

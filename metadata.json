@@ -1,0 +1,6 @@
+{
+  "name": "EasyAcss - Steam Account Premium",
+  "description": "Premium gaming account generator and catalog platform with cloud verification, shortlink monetization, Adsterra ad placements, and admin dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
