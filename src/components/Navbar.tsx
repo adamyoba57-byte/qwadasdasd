@@ -293,7 +293,7 @@ export const Navbar: React.FC = () => {
                       ? 'text-white bg-purple-600 border border-purple-400/50 shadow-purple-600/30'
                       : 'text-emerald-400 bg-emerald-950/80 border border-emerald-500/50 hover:bg-emerald-900/80 hover:text-emerald-300'
                   }`}
-                  title="Admin Panel / لوحة التحكم"
+                  title="Admin Panel"
                 >
                   <Shield className="w-3.5 h-3.5 text-emerald-400" />
                   <span className="font-gaming">Admin Panel</span>

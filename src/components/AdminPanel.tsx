@@ -424,8 +424,8 @@ export const AdminPanel: React.FC = () => {
     setAdsSaved(true);
     setAdsSaveFeedback(
       isSupabaseConnected
-        ? 'تم حفظ الإعلانات في قاعدة بيانات Supabase السحابية وفي الكاش! ستظهر الآن لجميع الزوار على كل المتصفحات فوراً.'
-        : 'تم حفظ الإعلانات بنجاح محلياً! لظهورها لكل الزوار على الإنترنت، يمكنك ربط Supabase من تبويب "Supabase Cloud".'
+        ? 'Ad scripts saved to Supabase cloud and cache! Changes are now live for all visitors across all browsers.'
+        : 'Ad scripts saved locally! To make them live across the internet, you can connect Supabase in the "Cloud Database" tab.'
     );
     setTimeout(() => {
       setAdsSaved(false);
@@ -595,7 +595,7 @@ export const AdminPanel: React.FC = () => {
             title="Publish all games, shortlinks and settings so all visitors can see them immediately"
           >
             <UploadCloud className={`w-3.5 h-3.5 ${isSyncing ? 'animate-bounce' : ''}`} />
-            <span className="hidden sm:inline">{isSyncing ? 'جاري النشر...' : 'نشر للجميع'}</span>
+            <span className="hidden sm:inline">{isSyncing ? 'Publishing...' : 'Publish Live'}</span>
           </button>
 
           {/* Quick Add Game Button */}
@@ -643,7 +643,7 @@ export const AdminPanel: React.FC = () => {
       {publishSuccess && (
         <div className="bg-emerald-500/15 border-b border-emerald-500/30 px-4 py-2 text-emerald-300 text-xs font-mono flex items-center justify-center gap-2 animate-in fade-in">
           <Check className="w-4 h-4 text-emerald-400 shrink-0" />
-          <span>تم حفظ ونشر التعديلات بنجاح! دابا أي شخص زار الرابط غادي يشوف التعديلات ديالك مباشرة.</span>
+          <span>Changes saved and published live! Any visitor opening your site will now see your updates immediately.</span>
         </div>
       )}
 
@@ -1681,22 +1681,22 @@ export const AdminPanel: React.FC = () => {
               </p>
             </div>
 
-            {/* Darija & English Guidance Banner */}
+            {/* Adsterra Guidance Banner */}
             <div className="p-4 rounded-2xl bg-purple-950/40 border border-purple-500/30 text-xs text-purple-200 space-y-2">
               <div className="flex items-center gap-2 font-bold text-purple-300 font-gaming">
                 <Sparkles className="w-4 h-4 text-purple-400" />
-                <span>Dalil Takhdim I3lanat Adsterra (دليل تشغيل الإعلانات)</span>
+                <span>Adsterra Ad Setup & Placement Guide</span>
               </div>
               <p className="text-[11px] leading-relaxed text-slate-300 font-sans">
-                1. <strong>Direct Link / SmartLink:</strong> Khod lien direct mn Adsterra (kibda b <code>https://...</code>) w 7etto f Khanat 1.
+                1. <strong>Direct Link / SmartLink:</strong> Copy your Direct Link URL from Adsterra (starts with <code>https://...</code>) and paste it into Slot 1.
                 <br />
-                2. <strong>Popunder:</strong> Khod script dyal Popunder w 7etto f Khanat 2. (Kikhedem f Catalog w Claim page).
+                2. <strong>Popunder:</strong> Copy your Popunder script snippet and paste it into Slot 2 (activates across Catalog and Claim pages).
                 <br />
-                3. <strong>Bannières (728x90, 300x250, 468x60):</strong> Khod code HTML/Script li fih <code>atOptions</code> aw <code>&lt;iframe&gt;</code> w 7etto f lkhanat dyalo. T9der tclicki <strong>"Tester l'aperçu"</strong> bach tchofo khdam direct 9bel ma t'enregistrer!
+                3. <strong>Banners (728x90, 300x250, 468x60):</strong> Copy the HTML/Script snippet containing <code>atOptions</code> or <code>&lt;iframe&gt;</code> and paste it into its respective slot. You can click <strong>"Test Preview"</strong> to verify it renders before saving!
                 <br />
-                4. <strong>Native Banner (Khanat 8):</strong> Khod code dyal Native Banner mn Adsterra w 7etto f Khanat 8. Kayt'afficha direct f <strong>Home page (blast Featured Accounts)</strong> w f grille d catalogue.
+                4. <strong>Native Banner (Slot 8):</strong> Copy the Native Banner snippet from Adsterra and paste it into Slot 8. It displays on the <strong>Home page</strong> and inside the game catalog grid.
                 <br />
-                5. Ghir tdir <strong>"Enregistrer"</strong>, le moteur kyt'activa direct f lmaw9i3 kamel w kyt'enregistra f Supabase!
+                5. Once you click <strong>"Save Changes"</strong>, the ad engine instantly activates across the entire site and syncs to cloud storage!
               </p>
             </div>
 
@@ -2565,10 +2565,10 @@ export const AdminPanel: React.FC = () => {
             <div className="p-4 rounded-xl bg-[#121215] border border-zinc-800 flex items-start gap-3">
               <Shield className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
               <div className="text-xs font-mono text-zinc-300">
-                <p className="font-semibold text-white mb-0.5">How Admin Access Works (كيفاش كيخدم الأدمن):</p>
+                <p className="font-semibold text-white mb-0.5">How Admin Access Works:</p>
                 <p className="text-zinc-400 text-[11px] leading-relaxed">
-                  أي مستخدم دار <strong className="text-zinc-200">Register</strong> فالموقع كيطلع فهاد القائمة مباشرة. اضغط على <strong className="text-emerald-400">"Grant Admin (3ti Admin)"</strong> باش تعطيه رتبة Admin. 
-                  ملي كيسجل الدخول بحسابو، غادي يبان ليه زر <strong className="text-white">"Admin Panel"</strong> فالـ Navbar مباشرة.
+                  Any user who completes <strong className="text-zinc-200">Registration</strong> on the site appears in this list immediately. Click <strong className="text-emerald-400">"Grant Admin"</strong> to grant them administrator status. 
+                  When they sign into their account, the <strong className="text-white">"Admin Panel"</strong> button appears in their navbar automatically.
                 </p>
               </div>
             </div>
@@ -2879,14 +2879,14 @@ export const AdminPanel: React.FC = () => {
                                   await toggleMemberRole(member.id);
                                   setMemberActionNotice({
                                     type: 'success',
-                                    text: `تم ترقية "${member.username}" إلى Admin! دابا يقدر يدخل للـ Admin Panel بحسابو.`
+                                    text: `Promoted "${member.username}" to Admin! They can now access the Admin Panel with their account.`
                                   });
                                 }}
                                 title="Promote this user to Admin (gives access to Admin Panel)"
                                 className="px-3 py-1.5 rounded-lg text-xs font-mono font-bold text-emerald-300 bg-emerald-950/70 hover:bg-emerald-900/90 border border-emerald-600/90 flex items-center gap-1.5 transition-all shadow-md active:scale-95 hover:shadow-emerald-950/50"
                               >
                                 <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                                <span>Grant Admin (3ti Admin)</span>
+                                <span>Grant Admin</span>
                               </button>
                             )}
 
@@ -3095,7 +3095,7 @@ export const AdminPanel: React.FC = () => {
                 </span>
               </div>
               <p className="text-xs text-slate-400 font-mono mt-1">
-                حل شامل ومباشر لربط وتوافق الموقع مع أي دومين مخصص (Custom Domain) أو نقله لأي استضافة خارجية دون فقدان الحسابات.
+                Complete solution for deploying to custom domains, Vercel, or Netlify with persistent sync and without losing data.
               </p>
             </div>
 
@@ -3134,7 +3134,7 @@ export const AdminPanel: React.FC = () => {
                   </div>
                   <div>
                     <h2 className="text-sm font-bold text-white font-gaming">
-                      حالة الدومين الحالي (Current Active Domain)
+                      Current Active Domain Status
                     </h2>
                     <p className="text-[11px] text-slate-400 font-mono">
                       {typeof window !== 'undefined' ? window.location.origin : 'Loading...'}
@@ -3153,10 +3153,10 @@ export const AdminPanel: React.FC = () => {
               <div className="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800 text-[11px] text-slate-300 font-mono leading-relaxed space-y-1.5">
                 <div className="flex items-center gap-2 text-purple-300 font-bold">
                   <Check className="w-3.5 h-3.5 text-purple-400 shrink-0" />
-                  <span>تم إضافة ملفات Vercel (vercel.json + api/site-data.ts) تلقائياً للمشروع!</span>
+                  <span>Vercel routing configuration (vercel.json + api/site-data.ts) active in project!</span>
                 </div>
                 <p className="text-slate-400 pl-5">
-                  الآن تم حل مشكل 404 بالكامل على Vercel و GitHub. السيرفر أصبح مهيأ لأي دومين مخصص (Custom Domain).
+                  SPA routing and 404 redirects are fully configured for Vercel, GitHub, and custom domains with CORS support.
                 </p>
               </div>
             </div>
@@ -3167,14 +3167,14 @@ export const AdminPanel: React.FC = () => {
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
                     <h2 className="text-sm font-bold text-white font-gaming">
-                      🚀 المزامنة المباشرة مع GitHub و Vercel (Deploy to Vercel)
+                      🚀 Direct Sync with GitHub & Vercel (Deploy to Vercel)
                     </h2>
                     <span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30">
-                      هام جداً
+                      IMPORTANT
                     </span>
                   </div>
                   <p className="text-xs text-slate-300 font-mono leading-relaxed">
-                    استضافة Vercel تبني الموقع من ملف <code className="text-purple-400 font-bold">src/data/mockData.ts</code> الموجود في GitHub. عندما تعدل الحسابات هنا، اضغط الزر أدناه لحفظ التعديلات في كود المشروع مباشرة حتى تظهر لكل الزوار عند رفعها لـ GitHub!
+                    Vercel builds your site directly from <code className="text-purple-400 font-bold">src/data/mockData.ts</code> in GitHub. Whenever you add or edit accounts here, click the button below to sync all changes into the code repository so every visitor sees the new accounts!
                   </p>
                 </div>
               </div>
@@ -3189,18 +3189,18 @@ export const AdminPanel: React.FC = () => {
                       if (ok) {
                         setBackupMsg({
                           type: 'success',
-                          text: '✅ تم حفظ ومزامنة جميع الحسابات في كود المشروع (mockData.ts) بنجاح! الآن عند رفع الكود لـ GitHub و Vercel ستظهر الحسابات الجديدة للجميع.'
+                          text: '✅ All accounts and configurations successfully saved and synced to mockData.ts! Push your repository to GitHub / Vercel to publish live for everyone.'
                         });
                       } else {
                         setBackupMsg({
                           type: 'error',
-                          text: 'حدث خطأ أثناء مزامنة الكود'
+                          text: 'An error occurred while syncing code.'
                         });
                       }
                     } catch {
                       setBackupMsg({
                         type: 'error',
-                        text: 'تعذر الاتصال بالسيرفر'
+                        text: 'Unable to connect to the server.'
                       });
                     } finally {
                       setIsExporting(false);
@@ -3210,7 +3210,7 @@ export const AdminPanel: React.FC = () => {
                   className="py-3 px-4 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-gaming text-xs font-bold flex items-center justify-center gap-2 shadow-lg shadow-purple-600/30 transition-all cursor-pointer"
                 >
                   <RefreshCw className={`w-4 h-4 ${isExporting ? 'animate-spin' : ''}`} />
-                  <span>{isExporting ? 'جاري مزامنة الكود...' : 'حفظ ومزامنة الكود لـ GitHub و Vercel'}</span>
+                  <span>{isExporting ? 'Syncing Code...' : 'Save & Sync to GitHub / Vercel'}</span>
                 </button>
 
                 <button
@@ -3284,19 +3284,19 @@ export const INITIAL_CONTENT = INITIAL_SITE_CONTENT;
                       URL.revokeObjectURL(url);
                       setBackupMsg({
                         type: 'success',
-                        text: 'تم تنزيل ملف mockData.ts المحدث! يمكنك استبداله داخل src/data/mockData.ts في GitHub مباشرة.'
+                        text: 'Updated mockData.ts downloaded! You can replace src/data/mockData.ts in your GitHub repository directly.'
                       });
                     } catch {
                       setBackupMsg({
                         type: 'error',
-                        text: 'حدث خطأ أثناء تنزيل الملف'
+                        text: 'Error downloading file.'
                       });
                     }
                   }}
                   className="py-3 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white font-gaming text-xs font-bold flex items-center justify-center gap-2 border border-slate-700 transition-all cursor-pointer"
                 >
                   <Download className="w-4 h-4 text-purple-400" />
-                  <span>تحميل ملف mockData.ts مباشرة</span>
+                  <span>Download mockData.ts directly</span>
                 </button>
               </div>
             </div>
@@ -3308,10 +3308,10 @@ export const INITIAL_CONTENT = INITIAL_SITE_CONTENT;
                 <div className="space-y-2">
                   <div className="flex items-center gap-2 text-white font-gaming text-sm font-bold">
                     <Download className="w-4 h-4 text-purple-400" />
-                    <span>تصدير نسخة احتياطية كاملة (Export JSON)</span>
+                    <span>Export Full Backup (Export JSON)</span>
                   </div>
                   <p className="text-xs text-slate-400 font-mono leading-relaxed">
-                    قم بتحميل ملف بيانات الموقع بضغطة واحدة. يحتوي على جميع حسابات الألعاب، الروابط الربحية، الإعلانات والمحتوى لنقلها لأي دومين فوراً.
+                    Download complete site data with one click. Contains all game accounts, shortlink gateways, ads, and settings to easily migrate or back up your website.
                   </p>
                 </div>
 
@@ -3332,19 +3332,19 @@ export const INITIAL_CONTENT = INITIAL_SITE_CONTENT;
                         URL.revokeObjectURL(url);
                         setBackupMsg({
                           type: 'success',
-                          text: 'تم تنزيل ملف النسخة الاحتياطية بنجاح!'
+                          text: 'Backup file downloaded successfully!'
                         });
                       } catch {
                         setBackupMsg({
                           type: 'error',
-                          text: 'حدث خطأ أثناء تنزيل الملف'
+                          text: 'Error downloading file.'
                         });
                       }
                     }}
                     className="w-full py-3 px-4 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-gaming text-xs font-bold flex items-center justify-center gap-2 shadow-lg shadow-purple-600/30 transition-all cursor-pointer"
                   >
                     <Download className="w-4 h-4" />
-                    <span>تحميل ملف البيانات (Download .JSON)</span>
+                    <span>Download Data File (.JSON)</span>
                   </button>
 
                   <button
@@ -3358,7 +3358,7 @@ export const INITIAL_CONTENT = INITIAL_SITE_CONTENT;
                     className="w-full py-2.5 px-4 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white font-mono text-xs flex items-center justify-center gap-2 transition-all cursor-pointer"
                   >
                     <Copy className="w-3.5 h-3.5" />
-                    <span>{copiedBackupString ? 'تم نسخ كود البيانات بالكامل!' : 'نسخ كود البيانات (Copy JSON Text)'}</span>
+                    <span>{copiedBackupString ? 'JSON Data Copied!' : 'Copy JSON Text'}</span>
                   </button>
                 </div>
               </div>
@@ -3368,10 +3368,10 @@ export const INITIAL_CONTENT = INITIAL_SITE_CONTENT;
                 <div className="space-y-2">
                   <div className="flex items-center gap-2 text-white font-gaming text-sm font-bold">
                     <ArrowDownToLine className="w-4 h-4 text-emerald-400" />
-                    <span>استيراد ونشر على هذا الدومين (Import to this Domain)</span>
+                    <span>Import & Restore to this Domain</span>
                   </div>
                   <p className="text-xs text-slate-400 font-mono leading-relaxed">
-                    إذا فتحت الموقع من دومين جديد، يمكنك رفع ملف النسخة الاحتياطية أو لصق الكود ليتم تطبيق وتحديث جميع الحسابات والإعدادات عليه فوراً!
+                    If you open the site from a new domain or browser, upload your JSON backup file or paste your JSON code to restore all game accounts and settings immediately!
                   </p>
                 </div>
 
@@ -3392,18 +3392,18 @@ export const INITIAL_CONTENT = INITIAL_SITE_CONTENT;
                           if (ok) {
                             setBackupMsg({
                               type: 'success',
-                              text: 'تم استيراد البيانات وتحديث جميع الحسابات بنجاح على هذا الدومين!'
+                              text: 'Data imported and all accounts successfully updated on this domain!'
                             });
                           } else {
                             setBackupMsg({
                               type: 'error',
-                              text: 'الملف غير صالح أو لا يحتوي على بنية صحيحة'
+                              text: 'Invalid file format or incorrect JSON structure.'
                             });
                           }
                         } catch {
                           setBackupMsg({
                             type: 'error',
-                            text: 'فشل قراءة الملف (ليس بتنسيق JSON صحيح)'
+                            text: 'Failed to read file (not valid JSON).'
                           });
                         }
                       };
@@ -3418,13 +3418,13 @@ export const INITIAL_CONTENT = INITIAL_SITE_CONTENT;
                     className="w-full py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-gaming text-xs font-bold flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/30 transition-all cursor-pointer"
                   >
                     <ArrowDownToLine className="w-4 h-4" />
-                    <span>رفع ملف النسخة الاحتياطية (Upload .JSON)</span>
+                    <span>Upload Backup File (.JSON)</span>
                   </button>
 
                   <button
                     type="button"
                     onClick={() => {
-                      const input = prompt('قم بلصق كود JSON الخاص بالبيانات هنا:');
+                      const input = prompt('Paste your JSON backup data here:');
                       if (!input) return;
                       try {
                         const json = JSON.parse(input);
@@ -3432,25 +3432,25 @@ export const INITIAL_CONTENT = INITIAL_SITE_CONTENT;
                         if (ok) {
                           setBackupMsg({
                             type: 'success',
-                            text: 'تم تطبيق البيانات بنجاح على هذا الدومين!'
+                            text: 'Data applied successfully to this domain!'
                           });
                         } else {
                           setBackupMsg({
                             type: 'error',
-                            text: 'البيانات المدخلة غير صالحة'
+                            text: 'The provided data is invalid.'
                           });
                         }
                       } catch {
                         setBackupMsg({
                           type: 'error',
-                          text: 'الكود المدخل ليس بتنسيق JSON صحيح'
+                          text: 'The entered code is not valid JSON.'
                         });
                       }
                     }}
                     className="w-full py-2.5 px-4 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white font-mono text-xs flex items-center justify-center gap-2 transition-all cursor-pointer"
                   >
                     <FileEdit className="w-3.5 h-3.5" />
-                    <span>لصق كود البيانات يدوياً (Paste JSON)</span>
+                    <span>Paste JSON Manually</span>
                   </button>
                 </div>
               </div>
@@ -3464,10 +3464,10 @@ export const INITIAL_CONTENT = INITIAL_SITE_CONTENT;
                 </div>
                 <div>
                   <h2 className="text-sm font-bold text-white font-gaming">
-                    ربط الموقع بسيرفر مركزي خارجي (Remote API Endpoint)
+                    Connect Site to Remote Server (Remote API Endpoint)
                   </h2>
                   <p className="text-[11px] text-slate-400 font-mono">
-                    إذا قمت بنشر الواجهة على استضافة خارجية (مثل Vercel أو Netlify أو cPanel)، يمكنك وضع رابط هذا السيرفر ليقوم الدومين الخارجي بجلب البيانات منه تلقائياً.
+                    If deploying the frontend to an external static host (like Netlify or cPanel), enter your central server URL here so your domain fetches dynamic data automatically.
                   </p>
                 </div>
               </div>
@@ -3477,7 +3477,7 @@ export const INITIAL_CONTENT = INITIAL_SITE_CONTENT;
                   type="text"
                   value={remoteEndpointInput}
                   onChange={(e) => setRemoteEndpointInput(e.target.value)}
-                  placeholder="https://ais-dev-...run.app (أو اتركه فارغاً لاستخدام السيرفر الافتراضي)"
+                  placeholder="https://ais-dev-...run.app (or leave empty to use default server)"
                   className="flex-1 px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-slate-200 text-xs font-mono focus:outline-none focus:border-blue-500"
                 />
 
@@ -3487,13 +3487,13 @@ export const INITIAL_CONTENT = INITIAL_SITE_CONTENT;
                     setApiEndpoint(remoteEndpointInput);
                     setBackupMsg({
                       type: 'success',
-                      text: 'تم حفظ رابط السيرفر السحابي بنجاح!'
+                      text: 'Remote cloud server URL saved successfully!'
                     });
                   }}
                   className="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-gaming text-xs font-bold flex items-center justify-center gap-1.5 transition-all cursor-pointer"
                 >
                   <Save className="w-3.5 h-3.5" />
-                  <span>حفظ الرابط</span>
+                  <span>Save URL</span>
                 </button>
 
                 {apiEndpoint && (
@@ -3504,12 +3504,12 @@ export const INITIAL_CONTENT = INITIAL_SITE_CONTENT;
                       setApiEndpoint('');
                       setBackupMsg({
                         type: 'success',
-                        text: 'تمت استعادة الرابط الافتراضي'
+                        text: 'Default server URL restored.'
                       });
                     }}
                     className="px-3.5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white font-mono text-xs transition-all"
                   >
-                    استعادة الافتراضي
+                    Reset Default
                   </button>
                 )}
               </div>
@@ -3563,14 +3563,14 @@ export const INITIAL_CONTENT = INITIAL_SITE_CONTENT;
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2 font-bold text-amber-300 font-gaming text-sm">
                   <Sparkles className="w-4 h-4 text-amber-400" />
-                  <span>Google Firestore Cloud Database (قاعدة البيانات السحابية المركزية المفعلة)</span>
+                  <span>Google Firestore Cloud Database (Active Central Cloud DB)</span>
                 </div>
                 <span className="px-2.5 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">
                   REAL-TIME SYNC
                 </span>
               </div>
               <p className="text-[12px] leading-relaxed text-slate-300 font-sans">
-                تم ربط الموقع وقاعدة البيانات السحابية <strong>Google Cloud Firestore</strong> تلقائياً! أي لعبة، حساب، عضو، أو كود إعلاني تقوم بتعديله هنا في لوحة التحكم، يُحفظ فوراً في السحابة و<strong>يظهر لجميع الزوار على Netlify أو Vercel في الوقت الفعلي (Live) بدون الحاجة إلى أي تحديث يدوي</strong>.
+                Your website is connected to <strong>Google Cloud Firestore</strong>! Any game account, member, or ad configuration edited in the Admin Panel is immediately saved to the cloud and <strong>available live to all visitors on Netlify or Vercel with zero manual rebuilds</strong>.
               </p>
 
               {fsStatusMsg && (
@@ -3594,7 +3594,7 @@ export const INITIAL_CONTENT = INITIAL_SITE_CONTENT;
                       const ok = await pushToFirestore();
                       setFsStatusMsg({
                         type: ok ? 'success' : 'error',
-                        text: ok ? 'تم رفع ومزامنة جميع الحسابات والإعدادات بنجاح إلى Google Firestore!' : 'حدث خطأ أثناء الرفع إلى Firestore.'
+                        text: ok ? 'All accounts and settings synced successfully to Google Firestore!' : 'Error syncing data to Google Firestore.'
                       });
                     } catch (e: any) {
                       setFsStatusMsg({ type: 'error', text: e?.message || 'Firestore error' });
@@ -3606,7 +3606,7 @@ export const INITIAL_CONTENT = INITIAL_SITE_CONTENT;
                   className="px-4 py-2 rounded-xl bg-amber-600 hover:bg-amber-500 text-slate-950 font-gaming text-xs font-bold flex items-center gap-2 transition-all cursor-pointer shadow-md shadow-amber-950/40 disabled:opacity-50"
                 >
                   <UploadCloud className={`w-3.5 h-3.5 ${isPushingFs ? 'animate-bounce' : ''}`} />
-                  <span>{isPushingFs ? 'جاري الرفع إلى Firestore...' : 'رفع كل البيانات إلى Firestore (Push to Cloud)'}</span>
+                  <span>{isPushingFs ? 'Pushing to Firestore...' : 'Push All Data to Firestore'}</span>
                 </button>
 
                 <button
@@ -3618,7 +3618,7 @@ export const INITIAL_CONTENT = INITIAL_SITE_CONTENT;
                       const ok = await syncFromFirestore();
                       setFsStatusMsg({
                         type: ok ? 'success' : 'error',
-                        text: ok ? 'تم سحب أحدث البيانات من Google Firestore بنجاح!' : 'لم يتم العثور على بيانات جديدة في Firestore.'
+                        text: ok ? 'Latest data pulled successfully from Google Firestore!' : 'No new data found in Firestore.'
                       });
                     } catch (e: any) {
                       setFsStatusMsg({ type: 'error', text: e?.message || 'Firestore sync error' });
@@ -3630,7 +3630,7 @@ export const INITIAL_CONTENT = INITIAL_SITE_CONTENT;
                   className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-mono text-xs flex items-center gap-2 transition-all cursor-pointer border border-slate-700 disabled:opacity-50"
                 >
                   <ArrowDownToLine className={`w-3.5 h-3.5 ${isPullingFs ? 'animate-bounce' : ''}`} />
-                  <span>{isPullingFs ? 'جاري السحب...' : 'سحب البيانات من Firestore (Pull Live Data)'}</span>
+                  <span>{isPullingFs ? 'Pulling Data...' : 'Pull Live Data from Firestore'}</span>
                 </button>
               </div>
             </div>
@@ -4089,12 +4089,12 @@ export const INITIAL_CONTENT = INITIAL_SITE_CONTENT;
                 if (res.success) {
                   setOauthSaveMsg({
                     type: 'success',
-                    text: 'تم حفظ إعدادات OAuth بنجاح! يمكن للزوار الآن تسجيل الدخول بحساباتهم الحقيقية فوراً.'
+                    text: 'OAuth configuration saved successfully! Visitors can now log in with their real accounts.'
                   });
                 } else {
                   setOauthSaveMsg({
                     type: 'error',
-                    text: res.message || 'فشل في حفظ الإعدادات.'
+                    text: res.message || 'Failed to save OAuth settings.'
                   });
                 }
               }}

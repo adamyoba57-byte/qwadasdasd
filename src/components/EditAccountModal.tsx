@@ -348,7 +348,7 @@ Network: Broadband Internet connection
                 {formData.systemRequirements && (
                   <div className="pt-2">
                     <span className="text-[11px] font-mono text-[#67c1f5] block mb-2 font-semibold">
-                      👀 Steam Live Preview (كيفاش كيبان للزائر):
+                      👀 Steam Live Preview (Visitor View):
                     </span>
                     <SteamSystemRequirements requirementsText={formData.systemRequirements} />
                   </div>

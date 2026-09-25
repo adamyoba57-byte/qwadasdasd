@@ -401,7 +401,7 @@ export const ClaimPage: React.FC = () => {
                     <Loader2 className="w-8 h-8 animate-spin text-emerald-400 mx-auto" />
                     <div>
                       <h4 className="font-bold text-white font-gaming text-sm">
-                        جارٍ تحويلك إلى الرابط المختصر...
+                        Redirecting to Shortlink Gateway...
                       </h4>
                       <p className="text-xs text-zinc-400 mt-1 font-mono">
                         Directing to link verification. Please complete the sponsor link to unlock credentials.
@@ -412,7 +412,7 @@ export const ClaimPage: React.FC = () => {
                         href={targetLink}
                         className="inline-flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-gaming text-xs font-bold uppercase tracking-wider transition-all shadow-lg shadow-emerald-950/50"
                       >
-                        <span>اضغط هنا إذا لم يتم التحويل تلقائياً (Open Link)</span>
+                        <span>Click here if not redirected automatically (Open Link)</span>
                         <ExternalLink className="w-4 h-4" />
                       </a>
                     )}
@@ -479,7 +479,7 @@ export const ClaimPage: React.FC = () => {
                 <div className="p-3.5 rounded-xl bg-emerald-950/40 border border-emerald-500/40 text-zinc-200 text-xs flex items-center gap-2.5">
                   <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
                   <div>
-                    <span className="font-bold block text-white font-gaming">تم التحقق وفتح الحساب بنجاح • Access Unlocked</span>
+                    <span className="font-bold block text-white font-gaming">Account Successfully Unlocked • Access Granted</span>
                     <span className="text-[11px] text-emerald-300/90 font-mono">
                       Here are your login credentials for this account:
                     </span>
